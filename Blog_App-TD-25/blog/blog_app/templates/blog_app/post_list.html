@@ -1,0 +1,16 @@
+{% extends 'blog_app/base.html' %}
+
+
+{% block content %}
+<h1>Heading for test</h1>
+
+{% for obj in object_list %}
+<a href="{% url 'posts:post_details' pk=obj.pk %}">{{obj.title}}</a><br>
+<!--dynamic url added-->
+{% endfor %}
+<span><br></span>
+{% for obj in object_list %}
+<a href="{{ obj.get_absolute_url }}"><strong>{{obj.title}}</strong></a><br>
+<!--2nd method-->
+{% endfor %}
+{% endblock content %}
